@@ -1,6 +1,26 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+// trial and error
+function trial_error($data) {
+    echo "<pre>";
+    var_dump($data);
+    echo "</pre>";
+    exit();
+}
+
+// helper to get user name that perform data manajemen
+function get_user_name($name_only=true){
+    $ci = &get_instance();
+    if ($name_only == true) {
+        return $ci->session->name;
+    }
+    $result = [];
+    $result[] = $ci->session->uniqueid;
+    $result[] = $ci->session->name;
+    return $result;
+}
+
 // return translation
 function translate($word = '')
 {

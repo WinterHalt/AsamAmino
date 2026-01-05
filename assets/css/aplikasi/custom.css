@@ -1,0 +1,126 @@
+/* Support on Custom Styling */
+
+/* Main Panel Style */
+.app-activity-card-layout {
+  margin-top: 10px;
+  padding: 0 15px;
+}
+
+/* Main Card Container Style */
+.app-activity-card-item {
+  border-radius: 15px; 
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
+  border-width: 1px; 
+  text-align: center;
+  margin-bottom: 20px;
+  border-color: transparent !important;
+}
+
+/* Remove Default Boostrap Panel Margin / Padding to Blend Components */
+.app-activity-card-item .panel-heading,
+.app-activity-card-item .panel-body,
+.app-activity-card-item .panel-footer {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+/* Adjust Padding Specifically for Content within Card */
+.app-activity-card-item .panel-body {
+  padding: 5px 0 !important;
+}
+
+/* Reduce Font Size & Spacing */
+.app-activity-card-item .panel-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Secondary Text Styling */
+.app-activity-card-item .small {
+  font-size: 90%; 
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+/* Footer Spacing Adjustment */
+.app-activity-card-item .panel-footer {
+  padding-top: 10px !important;
+}
+
+/* Terima Status */
+.app-activity-bg-terima { background-color: #59aa595b !important; }
+.app-activity-text-terima { color: #155724 !important; }
+
+/* Tolak Status */
+.app-activity-bg-tolak { background-color: #f8d7da !important; }
+.app-activity-text-tolak { color: #721c24 !important; }
+
+/* Pending Status */
+.app-activity-bg-pending { background-color: #6ca6b45b !important; }
+.app-activity-text-pending { color: #777 !important; }
+
+/* Button Adjustment */
+.app-activity-card-layout .btn-sm {
+  padding: 5px 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-radius: 5px;
+}
+
+/* Circle Button on Multi Filter Status */
+.btn-circle {
+  /* Dimensions remain the same for consistency */
+  width: 45px; 
+  height: 45px;
+  padding: 8px 0px; 
+  border-radius: 22.5px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  transition: all 0.2s ease-in-out;
+  margin: 0 5px;
+}
+
+/* Custom Button Colors Integrated with Card Scheme */
+
+/* Filter on : Pending or Delayed */
+.btn-filter[data-status="pending"] {
+  background-color: #f5f5f5;
+  color: #777;
+  border-color: #e3e3e3; 
+}
+
+/* Filter on : Reject */
+.btn-filter[data-status="reject"] {
+  background-color: #d2d2b4;
+  color: #6b4d6b;
+  border-color: #b8b89d;
+}
+
+/* Filter on : Kondisional, Di Tindak Lanjuti */
+.btn-filter[data-status="kondisional"],
+.btn-filter[data-status="ditl"] {
+  background-color: #e6eeea;
+  color: #5d7066;
+  border-color: #ccd9d2;
+}
+
+/* Filter on : Okay, Selesai */
+.btn-filter[data-status="ok"],
+.btn-filter[data-status="selesai"] {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+/* Insert - Circle Styling but Distinct Color */
+.btn-filter[data-status="insert"] {
+  background-color: #E0F4FF;
+  color: #185d79;
+  border-color: #B3E5FF;
+}

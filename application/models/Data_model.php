@@ -47,7 +47,7 @@ class Data_model extends MY_Model {
     $column = "s.name, tmd.tanggal, tmd.status, tmd.uploadfiles, tmd.uuid";
     $joined = "JOIN staff s ON tmd.user = s.staff_id";
     $orderby = "ORDER BY tmd.tanggal DESC";
-    $sqlquery = "SELECT $column FROM tabel_minta_data tmd $joined WHERE tmd.user = ? $orderby LIMIT 12";
+    $sqlquery = "SELECT $column FROM tabel_minta_data tmd $joined WHERE tmd.user = ? $orderby LIMIT 10";
     return $this->db->query($sqlquery, [get_user_name(false)[0]])->result_array();
   }
 
