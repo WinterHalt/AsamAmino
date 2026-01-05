@@ -32,10 +32,12 @@ new Chart(ctx, {
   // Option
   options: {
     plugins: {
+      // Disable Plot Display
       legend: {
         display: false
       }
     },
+    // Manipulate Plot Scale
     scales: {
       y: {
         beginAtZero: true,
@@ -44,6 +46,7 @@ new Chart(ctx, {
         }
       }
     },
+    // Config Plot Layout
     layout: {
       padding: {
         left: 20,
