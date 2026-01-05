@@ -37,7 +37,6 @@ class Data_model extends MY_Model {
     $this->db->where('uuid', $uuid);
     $this->db->where('status', 'Pending');
     $this->db->delete('tabel_minta_data');
-    return $this->db->affected_rows();
   }
 
   // ==================================
