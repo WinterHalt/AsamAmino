@@ -46,13 +46,7 @@ class Data extends Admin_Controller {
       access_denied();
     }
     // Model Delete
-    $affected = $this->datamodel->DeleteMintaData($uuid);
-    // Alert
-    if ($affected > 0) {
-      show_alert('success', 'Proses Penghapusan Permintaan Data Berhasil !');
-    } else {
-      show_alert('error', 'Proses Penghapusan Permintaan Data Gagal !');
-    }
+    $this->datamodel->DeleteMintaData($uuid);
     // Kembali
     redirect(base_url('simrs/data/'));
   }
