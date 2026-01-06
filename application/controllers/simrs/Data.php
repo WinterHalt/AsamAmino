@@ -1,5 +1,5 @@
 <?php
-// Final Version of SIMRS Data Controller !
+// Final Version of SIMRS Controller u User Minta Data !
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Data extends Admin_Controller {
