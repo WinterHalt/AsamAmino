@@ -9,10 +9,10 @@ class Data_model extends MY_Model {
     parent::__construct();
   }
 
-  // ==================================
+  // =======================================
   // Part Multi User Controller
-  // ==================================
-  public function PublishMintaData($uuid){
+  // =======================================
+  public function PublishMintaData($inputs){
     // Publish Input Permintaan Data User
     if (!empty($inputs["uuid"])) {
       // Update Existing Data
@@ -64,7 +64,7 @@ class Data_model extends MY_Model {
   }
 
   public function Finaly($inputs){
-     // Function to Close User Request on Data, Available Status "Pending, Terima, Tolak"
+    // Function to Close User Request on Data, Available Status "Pending, Terima, Tolak"
     // Finale Status
     $filter = ['uuid' => $inputs['uuid']];
     $alasan = empty($inputs['alasan']) ? 'Usulan Diterima' : $inputs['alasan'];
