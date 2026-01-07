@@ -17,7 +17,7 @@ CREATE TABLE `tabel_minta_data` (
 DROP TABLE IF EXISTS `tabel_minta_aplikasi`;
 CREATE TABLE `tabel_minta_aplikasi` (
   `uuid` VARCHAR(36) NOT NULL PRIMARY KEY,
-  `unit` INT NOT NULL,
+  `unit` VARCHAR(255) NOT NULL,
   `pengusul` VARCHAR(255) NOT NULL,
   `judul` VARCHAR(255) NOT NULL,
   `deskripsi` TEXT NOT NULL,

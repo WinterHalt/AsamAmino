@@ -58,6 +58,7 @@ class Aplikasi_model extends MY_Model {
     // Return Result
     $this->db->select($column);
     $this->db->where($filter);
+    $this->db->order_by('tanggal_pengajuan', 'DESC');
     return $this->db->get('join_permintaan_aplikasi')->result_array();
   }
 
