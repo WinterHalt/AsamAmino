@@ -1,5 +1,5 @@
 <?php
-// Final Version of SIMRS Controller u User Minta Aplikasi !
+// Final Version of SIMRS Controller u Handle User Minta Aplikasi !
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Aplikasi extends Admin_Controller {

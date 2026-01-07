@@ -6,7 +6,7 @@
     line-height: 32px !important; 
     padding-left: 12px; 
   }
-  .select2-container--default .select2-selection--single .select2-selection__arrow { height: 32px !important; }
+  .select2-container--default .select2-selection--single .select2-selection__arrow { display: none !important; }
   .table th, .table td {
     vertical-align: middle !important;
   }
@@ -149,7 +149,7 @@
             let actions = '';
             // Detail Minta Aplikasi
             actions += `
-              <a href="<?= base_url('user/aplikasi/detail/'); ?>${row.uuid}" class="btn btn-warning btn-circle icon">
+              <a href="<?= base_url('simrs/aplikasi/detail/'); ?>${row.uuid}" class="btn btn-warning btn-circle icon">
                 <i class="fas fa-eye"></i>
               </a>
             `;
@@ -162,9 +162,9 @@
               `;
             }
             // Define Modal & Delete Option
-            if (row.status === 'Pengajuan') {
+            if (row.status === 'Pending') {
               actions += `
-                <a href="<?= base_url('user/aplikasi/delete/'); ?>${row.uuid}"
+                <a href="<?= base_url('simrs/aplikasi/delete/'); ?>${row.uuid}"
                   class="btn btn-circle icon btn-danger"
                   onclick="return confirm('Yakin Ingin Menghapus Permintaan Aplikasi ?')">
                   <i class="fa fa-trash"></i>
@@ -178,6 +178,7 @@
                 <td>${row.unit}</td>
                 <td>${row.pengusul}</td>
                 <td>${row.judul}</td>
+                <!-- File Surat -->
                 <td>
                   <a href="<?= base_url('uploads/aplikasi/aplikasi/surat/'); ?>${row.surat}"
                     class="btn btn-circle icon btn-info"
@@ -185,6 +186,7 @@
                     <i class="fas fa-file"></i>
                   </a>
                 </td>
+                <!-- File Alur -->
                 <td>
                   <a href="<?= base_url('uploads/aplikasi/aplikasi/alur/'); ?>${row.alur}"
                     class="btn btn-circle icon btn-info"
@@ -209,20 +211,20 @@
         }
       })
     }
-    // ?
+    // Modal Controller
     $('#exampleModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget); 
       var uuid = button.data('uuid');
       var modalInput = $(this).find('#uuid');
       modalInput.val(uuid);
     });
-    // ?
+    // Modify Status Select
     $('#exampleModal').on('shown.bs.modal', function () {
       $('#status').select2({
         dropdownParent: $('#exampleModal')
       });
     });
-    // ?
+    // Conditional Input
     $('#status').on('change', function() {
       var selectedStatus = $(this).val();
       if (selectedStatus === 'Kondisional') {
@@ -232,10 +234,6 @@
         $('#alasan_section').hide();
         $('#alasan').prop('readonly', true);
       }
-    });
-    // Status as Select 2
-    $('#status').select2({
-      width: '100%'
     });
   });
 </script>
