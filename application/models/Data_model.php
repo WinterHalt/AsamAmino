@@ -13,6 +13,10 @@ class Data_model extends MY_Model {
   // Part Multi User Controller
   // =======================================
   public function PublishMintaData($inputs){
+  // ==================================
+  // Part Multi User Controller
+  // ==================================
+  public function PublishMintaData($uuid){
     // Publish Input Permintaan Data User
     if (!empty($inputs["uuid"])) {
       // Update Existing Data
