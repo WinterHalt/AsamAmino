@@ -1,0 +1,45 @@
+<!-- Final Version of User Minta Aplikasi Template -->
+<!-- Custom Styling -->
+<link rel="stylesheet" href="/assets/css/aplikasi/custom.css">
+
+<!-- Filter Panel -->
+<div class="row button-icon-row" style="margin-bottom: 20px;">
+  <div class="col-xs-12 text-center">
+    <div style="display: inline-block;">
+      <!-- Pending Only -->
+      <button type="button" class="btn btn-filter btn-circle" data-status="pending" title="Pending">
+        <i class="fa fa-hourglass-start"></i>
+      </button>
+      <!-- Kondisional Only -->
+      <button type="button" class="btn btn-filter btn-circle" data-status="kondisional" title="Kondisional">
+        <i class="fa fa-spinner"></i>
+      </button>
+      <!-- Available Only -->
+      <button type="button" class="btn btn-filter btn-circle" data-status="ok" title="OK">
+        <i class="fa fa-check-circle"></i>
+      </button>
+      <!-- Insert Button -->
+      <a href="/user/aplikasi/insert" type="button" class="btn btn-filter btn-circle" data-status="insert" title="Insert">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Wrapper Panel on Multi Card on Deck -->
+<div class="app-activity-card-layout">
+  <div class="row" id="app-activity-card-container">
+    <!-- JavaScript Auto Fill Content -->
+  </div>
+</div>
+
+<script src="<?php echo base_url('assets/js/aplikasi/aplikasi.js'); ?>"></script>
+<!-- Controller Content -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Define the Route to your Controller
+    var apiUrl = "<?php echo base_url('user/aplikasi/tabel_historia'); ?>";
+    // Call Function
+    ControllerContent(apiUrl);
+  });
+</script>
