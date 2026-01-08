@@ -7,5 +7,7 @@ INSERT INTO `permission_modules` VALUES(DEFAULT, 'Module SIMRS Help Desk', 'tick
 INSERT INTO `permission` (`module_id`, `name`, `prefix`) VALUES
   (6, 'Pelaporan Issue Aplikasi', 'laporan'),
   (6, 'Permintaan Data Aplikasi', 'mintadata'),
-  (6, 'Permintaan Aplikasi', 'aplikasi'),
-  (6, 'Permasalahan Teknis', 'teknisi');
+  (6, 'Permintaan Aplikasi', 'aplikasi');
+
+
+TRUNCATE tabel_minta_aplikasi; TRUNCATE tabel_minta_data; TRUNCATE tabel_issue_logtime; DELETE FROM tabel_pelaporan_issue; DELETE FROM tabel_pelaporan_issue;

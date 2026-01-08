@@ -1,0 +1,100 @@
+:root {
+  --bg: #f8fafc;
+  --line: #e2e8f0;
+  --pending: #f59e0b;
+  --ongoing: #3b82f6;
+  --selesai: #10b981;
+  --text-main: #1e293b;
+  --text-sub: #64748b;
+}
+
+/* 1. Container & Vertical Line */
+.timeline-container {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+  padding-left: 10px;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--line);
+  z-index: 0;
+}
+
+/* 2. Step Visibility Logic */
+.step {
+  display: none;
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 35px;
+  z-index: 1;
+}
+
+/* Logic: Show steps based on the parent status class */
+.status-pending .step-pending { display: block; }
+
+.status-ongoing .step-pending,
+.status-ongoing .step-ongoing { display: block; }
+
+.status-selesai .step-pending,
+.status-selesai .step-ongoing,
+.status-selesai .step-selesai { display: block; }
+
+/* 3. Node (The Dots) */
+.node {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--line);
+  box-sizing: border-box;
+}
+
+/* Static Colors for each step */
+.step-pending .node { border-color: var(--pending); }
+.step-ongoing .node { border-color: var(--ongoing); }
+.step-selesai .node { border-color: var(--selesai); background: var(--selesai); }
+
+/* 4. Dynamic Pulse Logic */
+.status-pending .step-pending .node { animation: pulse-pending 1.5s infinite; }
+.status-ongoing .step-ongoing .node { animation: pulse-ongoing 1.5s infinite; }
+.status-selesai .step-selesai .node { animation: pulse-selesai 1.5s infinite; }
+
+@keyframes pulse-pending {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+}
+
+@keyframes pulse-ongoing {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+}
+
+@keyframes pulse-selesai {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+}
+
+/* 5. Content & Typography */
+.content h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.meta {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  line-height: 1.4;
+}
