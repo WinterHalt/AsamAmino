@@ -1,3 +1,5 @@
+// Dashboard Java Script
+
 // Content of Canvas
 const chartElement = document.getElementById('myDashboardChart');
 const ctx = chartElement.getContext('2d');
