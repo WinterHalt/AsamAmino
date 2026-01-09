@@ -119,7 +119,7 @@ function ControllerContent(apiUrl){
       })
     },
     // Fail
-    error: function(xhr, status, error) {
+    error: function() {
       // Show Fail Error
       Swal.fire({
         type: 'error',

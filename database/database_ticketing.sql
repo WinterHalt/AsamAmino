@@ -46,11 +46,14 @@ CREATE TABLE `tabel_pelaporan_issue` (
 
 DROP TABLE IF EXISTS `tabel_issue_logtime`;
 CREATE TABLE `tabel_issue_logtime` (
-  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `uuid` varchar(36) NOT NULL,
-  `pending` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `lanjut` datetime DEFAULT NULL,
-  `selesai` datetime DEFAULT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uuid` VARCHAR(36) NOT NULL,
+  `pending` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `userp` VARCHAR(100) NOT NULL,
+  `lanjut` DATETIME DEFAULT NULL,
+  `userl` VARCHAR(100) DEFAULT NULL,
+  `selesai` DATETIME DEFAULT NULL,
+  `users` VARCHAR(100) DEFAULT NULL,
   CONSTRAINT `tabel_issue_logtime_ibfk_1` 
   FOREIGN KEY (`uuid`) 
   REFERENCES `tabel_pelaporan_issue` (`uuid`) ON DELETE CASCADE
