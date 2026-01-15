@@ -36,32 +36,50 @@ CREATE OR REPLACE VIEW view_pelaporan_issue AS
   JOIN
     staff s ON tpi.pelapor = s.staff_id;
 
-CREATE OR REPLACE VIEW `issue_log_report` AS
+CREATE OR REPLACE VIEW `issue_log_report_time_diff` AS
   SELECT
-    uuid,
+    til.uuid,
+    tpi.tanggal_pelaporan,
+    tpi.kategorikal,
     -- Selisih Tindak Lanjut dari Pending
     GREATEST(
       TIMESTAMPDIFF(
         HOUR,
-        pending,
-        COALESCE(lanjut, NOW())
+        til.pending,
+        COALESCE(til.lanjut, NOW())
       ), 0
     ) as lanjut,
     -- Selisih Selesai dari Tindak Lanjut
     GREATEST(
       TIMESTAMPDIFF(
         HOUR,
-        COALESCE(lanjut, pending),
-        COALESCE(selesai, NOW())
+        COALESCE(til.lanjut, til.pending),
+        COALESCE(til.selesai, NOW())
       ), 0
     ) as selesai,
     -- Selisih Selesai dari Pending
     GREATEST(
       TIMESTAMPDIFF(
         HOUR,
-        pending,
-        COALESCE(selesai, NOW())
+        til.pending,
+        COALESCE(til.selesai, NOW())
       ), 0
     ) as total
   FROM
-    tabel_issue_logtime;
+    tabel_issue_logtime til
+  JOIN tabel_pelaporan_issue tpi ON til.uuid = tpi.uuid;
+
+CREATE OR REPLACE VIEW `laporan_issue_logtime` AS
+  SELECT
+    til.uuid,
+    til.pending,
+    sp.name as userp,
+    til.lanjut,
+    sl.name as userl,
+    til.selesai,
+    ss.name as users
+  FROM
+    tabel_issue_logtime til
+  LEFT JOIN staff sp ON til.userp = sp.staff_id
+  LEFT JOIN staff sl ON til.userl = sl.staff_id
+  LEFT JOIN staff ss ON til.users = ss.staff_id;

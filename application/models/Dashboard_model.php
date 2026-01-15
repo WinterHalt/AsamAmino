@@ -32,5 +32,9 @@ class Dashboard_model extends MY_Model {
     $query = $this->db->get();
     return $query->result_array();
   }
+
+  public function TotalTimeResolve(){
+    echo "Hallo Masalah !";
+  }
 }
 ?>

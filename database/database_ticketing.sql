@@ -37,10 +37,10 @@ CREATE TABLE `tabel_pelaporan_issue` (
   `pelapor` VARCHAR(10) NOT NULL,
   `telephone` VARCHAR(15) NOT NULL,
   `deskripsi` TEXT NOT NULL,
-  `tanggal_pelaporan` DATE NOT NULL,
+  `tanggal_pelaporan` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `kategorikal` ENUM('Aplikasi', 'Perangkat', 'Jaringan') NOT NULL,
   `lampiran` VARCHAR(100) NOT NULL,
-  `status` ENUM('Pending','Di Tindak Lanjuti','Selesai') NOT NULL DEFAULT 'Pending',
+  `status` ENUM('Pending', 'Ongoing', 'Selesai') NOT NULL DEFAULT 'Pending',
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -49,11 +49,11 @@ CREATE TABLE `tabel_issue_logtime` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uuid` VARCHAR(36) NOT NULL,
   `pending` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `userp` VARCHAR(100) NOT NULL,
+  `userp` VARCHAR(10) NOT NULL,
   `lanjut` DATETIME DEFAULT NULL,
-  `userl` VARCHAR(100) DEFAULT NULL,
+  `userl` VARCHAR(10) DEFAULT NULL,
   `selesai` DATETIME DEFAULT NULL,
-  `users` VARCHAR(100) DEFAULT NULL,
+  `users` VARCHAR(10) DEFAULT NULL,
   CONSTRAINT `tabel_issue_logtime_ibfk_1` 
   FOREIGN KEY (`uuid`) 
   REFERENCES `tabel_pelaporan_issue` (`uuid`) ON DELETE CASCADE
