@@ -8,7 +8,7 @@ CREATE OR REPLACE VIEW join_permintaan_aplikasi AS
     s_pengusul.name AS pengusul,
     tma.pic,
     tma.status,
-    tma.tanggal_pengajuan,
+    date(tma.tanggal_pengajuan) as tanggal_pengajuan,
     tma.judul,
     tma.deskripsi,
     tma.surat,
